@@ -3,9 +3,9 @@ package com.company;
 class MatrixThreads implements Runnable{
     int start;
     int stop;
-    int a[][];
-    int b[][];
-    int d[][];
+    int [][] a;
+    int [][] b;
+    int [][] d;
 
     public MatrixThreads(int[][] _a, int[][] _b, int[][] _d, int _start, int _stop){
         this.a = _a;
@@ -17,24 +17,16 @@ class MatrixThreads implements Runnable{
 
     @Override
     public void run() {
-        int size = a.length;
-        //int answer[][] = new int[size][size];
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                for (int k = 0; k < size; k++) {
-                    d[i][j] = d[i][j] + (a[i][k] * b[k][j]);
-        /*
-       int size = 1000;
+       //int size = 1000;
        for (int i = start; i < stop; i++) {
-           for (int j = start; j < stop; j++) {
-               for (int k = start; k < stop; k++) {
-                   d[i][j] = d[i][j] + (a[i][k] * b[k][j]);*/
+           for (int j = 0; j < 1000; j++) {
+               for (int k = 0; k < 1000; k++) {
+                   d[i][j] = d[i][j] + (a[i][k] * b[k][j]);
                }
            }
        }
     }
 }
-
 
 public class Main {
 
@@ -108,7 +100,7 @@ public class Main {
 
         t1.start();
         t2.start();
-        //m2.run();
+
         try {
             t1.join();
             t2.join();
